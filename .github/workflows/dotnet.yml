@@ -1,0 +1,30 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+env: 
+  working-directory: ./ForfeitCase
+
+jobs:
+  build:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      working-directory: ${{env.working-directory}}
+      run: dotnet restore
+    - name: Build
+      working-directory: ${{env.working-directory}}
+      run: dotnet build --no-restore
+    - name: Test
+      working-directory: ${{env.working-directory}}
+      run: dotnet test --no-build --verbosity normal
