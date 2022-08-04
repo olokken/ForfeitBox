@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForfeitCase.Service", "ForfeitCase.Service\ForfeitCase.Service.csproj", "{4BEB78E4-1878-40A9-B61C-AE76075B03C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{BA1D724A-1DC2-41D5-B258-6389E3DC6327}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1D724A-1DC2-41D5-B258-6389E3DC6327}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA1D724A-1DC2-41D5-B258-6389E3DC6327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BEB78E4-1878-40A9-B61C-AE76075B03C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BEB78E4-1878-40A9-B61C-AE76075B03C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BEB78E4-1878-40A9-B61C-AE76075B03C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BEB78E4-1878-40A9-B61C-AE76075B03C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

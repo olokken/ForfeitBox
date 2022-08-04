@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MySqlConnector;
 
 namespace ForfeitCase.Test
 {
@@ -19,7 +20,7 @@ namespace ForfeitCase.Test
         {
           services.Remove(serviceDescriptor);
         }
-        //services.AddScoped<IDbConnection, SqlConnection>(_ => new SqlConnection(""));
+        services.AddScoped<IDbConnection, MySqlConnection>(_ => new MySqlConnection("Server=127.0.0.1;Port=3306;Database=test_db;Uid=root;Pwd=root;"));
       });
       return base.CreateHost(builder);
     }

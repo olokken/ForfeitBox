@@ -10,7 +10,7 @@ namespace ForfeitCase.Test
       await using var application = new TestApplication();
       var client = application.CreateClient();
 
-      var response = await client.GetAsync("/WeatherForecast");
+      var response = await client.GetAsync("/api/WeatherForecast");
       Assert.True(response.IsSuccessStatusCode); 
     }
   }

@@ -19,6 +19,8 @@ jobs:
       run: |
         sudo /etc/init.d/mysql start
         mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+        mysql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} ${{ env.DB_DATABASE }} < database.sql
+        mysql -e 'SHOW DATABASES;' -uroot -proot
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
