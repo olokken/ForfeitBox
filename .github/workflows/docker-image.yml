@@ -30,7 +30,7 @@ jobs:
         with:
           context: ./ForfeitCase
           push: true
-          tags: forfeit-case/Backend:latest
+          tags: olokken/forfeit-case:frontend
       
       
     
