@@ -2,34 +2,34 @@ name: Backend - Build and test
 
 on:
   pull_request:
-    branches: ["master"]
-env:
+    branches: [ "master" ]
+env: 
   WORKING_DIRECTORY: ./ForfeitCase
   DB_DATABASE: test_db
   DB_USER: root
   DB_PASSWORD: root
 jobs:
   build:
+    
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up MySQL
-        run: |
-          sudo /etc/init.d/mysql start
-          mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
-          mysql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} < database.sql
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: 6.0.x
-      - name: Restore dependencies
-        working-directory: ${{env.WORKING_DIRECTORY}}
-        run: dotnet restore
-      - name: Build
-        working-directory: ${{env.WORKING_DIRECTORY}}
-        run: dotnet build --no-restore
-      - name: Test
-        working-directory: ${{env.WORKING_DIRECTORY}}
-        run: dotnet test --no-build --verbosity normal
+    - uses: actions/checkout@v3
+    - name: Set up MySQL
+      run: |
+        sudo /etc/init.d/mysql start
+        mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+        mysql -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} < database.sql
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      working-directory: ${{env.WORKING_DIRECTORY}}
+      run: dotnet restore
+    - name: Build
+      working-directory: ${{env.WORKING_DIRECTORY}}
+      run: dotnet build --no-restore
+    - name: Test
+      working-directory: ${{env.WORKING_DIRECTORY}}
+      run: dotnet test --no-build --verbosity normal
