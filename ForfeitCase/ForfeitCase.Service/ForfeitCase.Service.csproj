@@ -4,19 +4,14 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
-    <UserSecretsId>de3338af-d3d3-4fae-bd73-798da0458305</UserSecretsId>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    <PackageReference Include="MySqlConnector" Version="2.1.11" />
+    <None Remove="Interfaces\" />
   </ItemGroup>
-
   <ItemGroup>
-    <None Remove="System.Data.SqlClient" />
-    <None Remove="MySqlConnector" />
-    <None Remove="Dtos\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ForfeitCase.Entities\ForfeitCase.Entities.csproj">
@@ -25,11 +20,5 @@
     <ProjectReference Include="..\ForfeitCase.Repository\ForfeitCase.Repository.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\ForfeitCase.Service\ForfeitCase.Service.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dtos\" />
   </ItemGroup>
 </Project>
