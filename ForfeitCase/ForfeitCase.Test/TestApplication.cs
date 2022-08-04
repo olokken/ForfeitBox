@@ -20,8 +20,7 @@ namespace ForfeitCase.Test
         {
           services.Remove(serviceDescriptor);
         }
-        //Server=127.0.0.1;Port=3306;Database=test_db;Uid=root;Pwd=root;
-        services.AddScoped<IDbConnection, MySqlConnection>(_ => new MySqlConnection("Server=127.0.0.1;Port=3306;Database=ForfeitCase;Uid=root;Pwd=MyNewPass;"));
+        services.AddScoped<IDbConnection, MySqlConnection>(_ => new MySqlConnection("Server=127.0.0.1;Port=3306;Database=test_db;Uid=root;Pwd=root;"));
       });
       return base.CreateHost(builder);
     }
