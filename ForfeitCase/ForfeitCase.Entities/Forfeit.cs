@@ -7,6 +7,7 @@
     public string? Description { get; set; }
     public double Sum { get; set; }
     public string? CaseId { get; set; }
+    public virtual Case? @Case { get; set; }
   }
 }
 

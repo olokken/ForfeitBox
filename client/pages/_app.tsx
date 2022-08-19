@@ -1,11 +1,11 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import type { AppProps } from "next/app";
 import { useState } from "react";
 import { darkTheme } from "../themes/DarkTheme";
 import { lightTheme } from "../themes/LightTheme";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [isDarkMode] = useState<boolean>(false);
 
   return (
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>

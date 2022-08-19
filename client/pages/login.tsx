@@ -10,7 +10,7 @@ const LoginContainer = styled.div`
   justify-content: center;
 `;
 
-function login() {
+function LoginPage() {
   const router: NextRouter = useRouter();
 
   const login = () => {
@@ -24,4 +24,4 @@ function login() {
   );
 }
 
-export default login;
+export default LoginPage;

@@ -14,12 +14,10 @@ namespace ForfeitCase.Web
         var handler = new JwtSecurityTokenHandler();
         var jwt = handler.ReadJwtToken(token);
         IEnumerable<Claim> claims = jwt.Claims;
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-        string? oid = claims.FirstOrDefault(c => c.Type == "oid").Value;
-#pragma warning restore CS8602 // Dereference of a possibly null reference.            
-        if (oid != null)
+        Claim? claim = claims.FirstOrDefault(c => c.Type == "oid");      
+        if (claim != null)
         {
-          return oid;
+          return claim.Value;
         }
       }
       return "";
