@@ -2,6 +2,7 @@
 using System.Text.Json;
 using ForfeitCase.Entities;
 using ForfeitCase.Web.Dtos;
+using ForfeitCase.Web.Dtos.User;
 using Xunit;
 
 namespace ForfeitCase.Test
@@ -20,16 +21,18 @@ namespace ForfeitCase.Test
         Name = "name",
         Email = "mail@mail.com"
       };
-      HttpContent content = new StringContent(JsonSerializer.Serialize(userDto), Encoding.UTF8, "application/json"); 
+      HttpContent content = new StringContent(JsonSerializer.Serialize(userDto), Encoding.UTF8, "application/json");
       var createResponse = await client.PostAsync("/api/User", content);
+      String stringResponse = await createResponse.Content.ReadAsStringAsync();
+      User? user = JsonSerializer.Deserialize<User>(stringResponse);
       Assert.True(createResponse.IsSuccessStatusCode);
 
       //Fetching all users
-      HttpResponseMessage response = await client.GetAsync("/api/User");
-      String body = await response.Content.ReadAsStringAsync(); 
-      IEnumerable<User>? users = JsonSerializer.Deserialize<IEnumerable<User>>(body);
-      Assert.NotEmpty(users); 
-      Assert.True(response.IsSuccessStatusCode);
+      if (user != null)
+      {
+        HttpResponseMessage response = await client.GetAsync($"/api/User/{user.UserId}");
+        Assert.True(response.IsSuccessStatusCode);
+      }
     }
   }
 }

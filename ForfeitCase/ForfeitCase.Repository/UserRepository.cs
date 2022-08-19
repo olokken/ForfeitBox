@@ -21,8 +21,12 @@ namespace ForfeitCase.Repository
 
     public async Task<User> GetUser(string userId)
     {
-      var query = "SELECT UserId, Name from user where UserId = @UserId";
-      return await _dbConnection.QueryFirstOrDefaultAsync<User>(query, new { UserId = userId });
+      var userQuery = "SELECT UserId, Name from user where UserId = @UserId";
+      var caseQuery = "SELECT c.CaseId, c.Name from case c join user_case uc on c.CaseId = uc.CaseId where UserId = @UserId";
+      User user = await _dbConnection.QueryFirstOrDefaultAsync<User>(userQuery, new { UserId = userId });
+      IEnumerable<Case> cases = await _dbConnection.QueryAsync<Case>(caseQuery, new {UserId = userId});
+      user.Cases = cases; 
+      return user; 
     }
 
     async Task<IEnumerable<User>> IUserRepository.GetUsers()

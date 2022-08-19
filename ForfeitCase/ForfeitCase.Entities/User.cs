@@ -6,13 +6,13 @@ namespace ForfeitCase.Entities
   public class User
   {
     [JsonPropertyName("userId")]
-    public String? UserId { get; set; }
+    public string? UserId { get; set; }
     [JsonPropertyName("email")]
-    public String? Email { get; set; }
+    public string? Email { get; set; }
     [JsonPropertyName("name")]
-    public String? Name { get; set; }
-    public String? Password { get; set; }
-    public List<Case>? Cases { get; set; }
+    public string? Name { get; set; }
+    public string? Password { get; set; }
+    public IEnumerable<Case>? Cases { get; set; }
   }
 }
 

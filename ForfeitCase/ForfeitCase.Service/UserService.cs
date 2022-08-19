@@ -22,11 +22,6 @@ namespace ForfeitCase.Service
     {
       return _userRepository.GetUser(userId);
     }
-
-    public Task<IEnumerable<User>> GetUsers()
-    {
-      return _userRepository.GetUsers();
-    }
   }
 }
 

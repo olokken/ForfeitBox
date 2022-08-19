@@ -1,8 +1,8 @@
-﻿namespace ForfeitCase.Entities
+﻿using System;
+namespace ForfeitCase.Web.Dtos.Forfeit
 {
-  public class Forfeit
+  public class CreateForfeitDto
   {
-    public string? ForfeitId { get; set; }
     public string? Name { get; set; }
     public string? Description { get; set; }
     public double Sum { get; set; }

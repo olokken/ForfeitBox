@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
 using ForfeitCase.Repository;
 using ForfeitCase.Service;
 using MySqlConnector;

@@ -11,12 +11,20 @@
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="MySqlConnector" Version="2.1.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.8" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="System.Data.SqlClient" />
     <None Remove="MySqlConnector" />
     <None Remove="Dtos\" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Dtos\Case\" />
+    <None Remove="Dtos\User\" />
+    <None Remove="Dtos\UserCase\" />
+    <None Remove="Dtos\Forfeit\" />
+    <None Remove="Dtos\Allocation\" />
+    <None Remove="Dtos\Payment\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ForfeitCase.Entities\ForfeitCase.Entities.csproj">
@@ -31,5 +39,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dtos\" />
+    <Folder Include="Dtos\Case\" />
+    <Folder Include="Dtos\User\" />
+    <Folder Include="Dtos\UserCase\" />
+    <Folder Include="Dtos\Forfeit\" />
+    <Folder Include="Dtos\Allocation\" />
+    <Folder Include="Dtos\Payment\" />
   </ItemGroup>
 </Project>
