@@ -7,4 +7,5 @@
     <OutputType>Library</OutputType>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'ForfeitCase.Entities' " />
 </Project>

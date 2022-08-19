@@ -1,8 +1,8 @@
 ﻿using System;
-using ForfeitCase.Entities;
-using ForfeitCase.Repository;
+using ForfeitBox.Entities;
+using ForfeitBox.Repository;
 
-namespace ForfeitCase.Service
+namespace ForfeitBox.Service
 {
   public class UserService : IUserService
   {
@@ -21,11 +21,6 @@ namespace ForfeitCase.Service
     public Task<User> GetUser(string userId)
     {
       return _userRepository.GetUser(userId);
-    }
-
-    public Task<IEnumerable<User>> GetUsers()
-    {
-      return _userRepository.GetUsers();
     }
   }
 }

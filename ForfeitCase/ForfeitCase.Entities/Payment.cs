@@ -1,10 +1,10 @@
 ﻿using System;
-namespace ForfeitCase.Entities
+namespace ForfeitBox.Entities
 {
   public class Payment : Action
   {
-    public String? PaymentId { get; set; }
-    public double Sum { get; set; }
+    public string? PaymentId { get; set; }
+    public double Sum { get; set; }    
   }
 }
 

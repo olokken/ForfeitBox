@@ -7,7 +7,7 @@
     "ForfeitCase.Repository": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:65157",
+      "applicationUrl": "http://localhost:4039",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

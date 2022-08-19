@@ -1,10 +1,9 @@
-﻿using System;
-using ForfeitCase.Entities;
-using ForfeitCase.Service;
-using ForfeitCase.Web.Dtos;
+using ForfeitBox.Entities;
+using ForfeitBox.Service;
+using ForfeitBox.Web.Dtos.User;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ForfeitCase.Web.Controllers
+namespace ForfeitBox.Web.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
@@ -14,12 +13,6 @@ namespace ForfeitCase.Web.Controllers
     public UserController(IUserService userService)
     {
       _userService = userService;
-    }
-
-    [HttpGet]
-    public Task<IEnumerable<User>> GetUsers()
-    {
-      return _userService.GetUsers();
     }
 
     [HttpGet("{userId}")]

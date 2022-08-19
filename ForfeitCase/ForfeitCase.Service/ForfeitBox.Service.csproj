@@ -7,6 +7,7 @@
     <OutputType>Library</OutputType>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'ForfeitCase.Service' " />
   <ItemGroup>
     <None Remove="Interfaces\" />
   </ItemGroup>
@@ -14,10 +15,10 @@
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ForfeitCase.Entities\ForfeitCase.Entities.csproj">
+    <ProjectReference Include="..\ForfeitCase.Entities\ForfeitBox.Entities.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\ForfeitCase.Repository\ForfeitCase.Repository.csproj">
+    <ProjectReference Include="..\ForfeitCase.Repository\ForfeitBox.Repository.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>

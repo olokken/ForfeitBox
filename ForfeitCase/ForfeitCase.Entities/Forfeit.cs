@@ -1,12 +1,13 @@
-﻿using System;
-namespace ForfeitCase.Entities
+﻿namespace ForfeitBox.Entities
 {
   public class Forfeit
   {
-    public String? ForfeitId { get; set; }
-    public String? Name { get; set; }
-    public String? Description { get; set; }
+    public string? ForfeitId { get; set; }
+    public string? Name { get; set; }
+    public string? Description { get; set; }
     public double Sum { get; set; }
+    public string? BoxId { get; set; }
+    public virtual Box? Box { get; set; }
   }
 }
 

@@ -1,11 +1,13 @@
 ﻿using System;
-namespace ForfeitCase.Entities
+namespace ForfeitBox.Entities
 {
   public class Allocation : Action
   {
-    public String? AllocationId { get; set; }
+    public string? AllocationId { get; set; }
     public User? Reciever { get; set; }
+    public string? RecieverId { get; set; }
     public Forfeit? Forfeit { get; set; }
+    public string? ForfeitId { get; set; }    
   }
 }
 

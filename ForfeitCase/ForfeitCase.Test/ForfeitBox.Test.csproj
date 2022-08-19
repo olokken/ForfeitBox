@@ -30,5 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ForfeitCase.Web\ForfeitCase.Web.csproj" />
+    <ProjectReference Include="..\ForfeitCase.Web\ForfeitBox.Web.csproj" />
   </ItemGroup>
 </Project>

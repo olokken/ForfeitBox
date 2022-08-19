@@ -1,7 +1,6 @@
 ﻿using System.Data;
-using System.Data.SqlClient;
-using ForfeitCase.Repository;
-using ForfeitCase.Service;
+using ForfeitBox.Repository;
+using ForfeitBox.Service;
 using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +11,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IDbConnection, MySqlConnection>(_ => new MySqlConnection(builder.Configuration.GetConnectionString("Default")));
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddScoped<IDbConnection, MySqlConnection>(_ => new MySqlConnection(builder.Configuration.GetConnectionString("Default")));
 
