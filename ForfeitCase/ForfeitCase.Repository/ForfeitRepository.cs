@@ -1,8 +1,8 @@
 ﻿using Dapper;
+using ForfeitBox.Entities;
 using System.Data;
-using ForfeitCase.Entities;
 
-namespace ForfeitCase.Repository
+namespace ForfeitBox.Repository
 {
   public class ForfeitRepository : IForfeitRepository
   {
@@ -15,7 +15,7 @@ namespace ForfeitCase.Repository
     public async Task CreateForfeit(Forfeit forfeit, string executorId)
     {
       var sql = "INSERT INTO forfeit (ForfeitId, Name, Description, Sum, CaseId) values (@ForfeitId, @Name, @Description, @Sum, @CaseId)";
-      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, executorId, forfeit.CaseId);
+      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, executorId, forfeit.BoxId);
       if(isAdmin)
       {
         await _dbConnection.ExecuteAsync(sql, forfeit); 
@@ -35,7 +35,7 @@ namespace ForfeitCase.Repository
     public async Task EditForfeit(Forfeit forfeit, string executorId)
     {
       var sql = "UPDATE forfeit SET Name = @Name, Sum = @Sum, Description = @Description where ForfeitId = @ForfeitId";
-      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, executorId, forfeit.CaseId);
+      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, executorId, forfeit.BoxId);
       if (isAdmin)
       {
         await _dbConnection.ExecuteAsync(sql, forfeit);

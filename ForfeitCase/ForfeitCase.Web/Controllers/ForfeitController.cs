@@ -1,9 +1,9 @@
-﻿using ForfeitCase.Entities;
-using ForfeitCase.Service;
-using ForfeitCase.Web.Dtos.Forfeit;
+﻿using ForfeitBox.Entities;
+using ForfeitBox.Service;
+using ForfeitBox.Web.Dtos.Forfeit;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ForfeitCase.Web.Controllers
+namespace ForfeitBox.Web.Controllers
 {
   [ApiController]
   [Route("api/Case/[controller]")]
@@ -24,7 +24,7 @@ namespace ForfeitCase.Web.Controllers
         Name = createForfeitDto.Name,
         Description = createForfeitDto.Description,
         Sum = createForfeitDto.Sum,
-        CaseId = createForfeitDto.CaseId
+        BoxId = createForfeitDto.BoxId
       };
       await _forfeitService.CreateForfeit(forfeit, Utils.GetIdFromToken(HttpContext));
       return Ok(forfeit);

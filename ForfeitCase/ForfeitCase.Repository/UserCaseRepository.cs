@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using System.Data;
 
-namespace ForfeitCase.Repository
+namespace ForfeitBox.Repository
 {
   public class UserCaseRepository : IUserCaseRepository
   {
@@ -17,10 +17,10 @@ namespace ForfeitCase.Repository
       await _dbConnection.ExecuteAsync(addUserQuery, new { UserId = userId, CaseId = caseId });
     }
 
-    public static async Task<bool> IsAdmin(IDbConnection connection, string userId, string caseId)
+    public static async Task<bool> IsAdmin(IDbConnection connection, string userId, string boxId)
     {
-      var isAdminQuery = "SELECT isAdmin from user_case where UserId = @UserId, CaseId = @CaseId";
-      bool isAdmin = await connection.QueryFirstOrDefaultAsync<bool>(isAdminQuery, new { UserId = userId, CaseId = caseId });
+      var isAdminQuery = "SELECT isAdmin from user_case where UserId = @UserId, BoxId = @BoxId";
+      bool isAdmin = await connection.QueryFirstOrDefaultAsync<bool>(isAdminQuery, new { UserId = userId, BoxId = boxId });
       if (isAdmin)
       {
         return true;
@@ -29,10 +29,10 @@ namespace ForfeitCase.Repository
       throw new UnauthorizedAccessException();
     }
     
-    public static async Task<bool> IsMember(IDbConnection connection, string userId, string caseId)
+    public static async Task<bool> IsMember(IDbConnection connection, string userId, string boxId)
     {
-      var isAdminQuery = "SELECT UserId from user_case where UserId = @UserId, CaseId = @CaseId";
-      List<string> ids = (List<string>)await connection.QueryAsync<string>(isAdminQuery, new { UserId = userId, CaseId = caseId });
+      var isAdminQuery = "SELECT UserId from user_case where UserId = @UserId, BoxId = @BoxId";
+      List<string> ids = (List<string>)await connection.QueryAsync<string>(isAdminQuery, new { UserId = userId, BoxId = boxId });
       if (ids.Count >= 1)
       {
         return true;

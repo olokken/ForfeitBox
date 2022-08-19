@@ -1,7 +1,7 @@
 ﻿using System;
-using ForfeitCase.Repository;
+using ForfeitBox.Repository;
 
-namespace ForfeitCase.Service
+namespace ForfeitBox.Service
 {
   public class UserCaseService : IUserCaseService
   {

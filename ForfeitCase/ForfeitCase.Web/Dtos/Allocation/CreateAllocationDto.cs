@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ForfeitCase.Web.Dtos.Allocation
+namespace ForfeitBox.Web.Dtos.Allocation
 {
   public class CreateAllocationDto
   {

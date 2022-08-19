@@ -1,7 +1,7 @@
 ﻿using System;
-using ForfeitCase.Entities;
+using ForfeitBox.Entities;
 
-namespace ForfeitCase.Repository
+namespace ForfeitBox.Repository
 {
   public interface IForfeitRepository
   {

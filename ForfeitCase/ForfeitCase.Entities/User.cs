@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-using System.Text.Json.Serialization;
-
-namespace ForfeitCase.Entities
+namespace ForfeitBox.Entities
 {
   public class User
   {
@@ -14,7 +12,7 @@ namespace ForfeitCase.Entities
     [JsonPropertyName("name")]
     public string? Name { get; set; }
     public string? Password { get; set; }
-    public IEnumerable<Case>? Cases { get; set; }
+    public IEnumerable<Box>? Boxes { get; set; }
   }
 }
 

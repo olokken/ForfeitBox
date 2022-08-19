@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace ForfeitCase.Test
+namespace ForfeitBox.Test
 {
   public class TestAuthHandlerOptions : AuthenticationSchemeOptions
   {

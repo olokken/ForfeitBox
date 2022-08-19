@@ -1,4 +1,4 @@
-﻿namespace ForfeitCase.Service
+﻿namespace ForfeitBox.Service
 {
   public interface IUserCaseService
   {

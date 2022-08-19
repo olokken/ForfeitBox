@@ -1,9 +1,9 @@
-﻿using ForfeitCase.Entities;
-using ForfeitCase.Service;
-using ForfeitCase.Web.Dtos.Payment;
+﻿using ForfeitBox.Entities;
+using ForfeitBox.Service;
+using ForfeitBox.Web.Dtos.Payment;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ForfeitCase.Web.Controllers
+namespace ForfeitBox.Web.Controllers
 {
   [ApiController]
   [Route("api/Case/[controller]")]
@@ -22,7 +22,7 @@ namespace ForfeitCase.Web.Controllers
       {
         PaymentId = Guid.NewGuid().ToString(),
         Sum = createPaymentDto.Sum,
-        CaseId = createPaymentDto.CaseId,
+        BoxId = createPaymentDto.BoxId,
         ExecutorId = Utils.GetIdFromToken(HttpContext)
       };
       await _paymentService.CreatePayment(payment); 
@@ -35,7 +35,7 @@ namespace ForfeitCase.Web.Controllers
       PaymentConfirmation paymentConfirmation = new PaymentConfirmation
       {
         PaymentConfirmationId = Guid.NewGuid().ToString(),
-        CaseId = confirmPaymentDto.CaseId,
+        BoxId = confirmPaymentDto.BoxId,
         PaymentId = confirmPaymentDto.PaymentId,        
       };
       await _paymentService.ConfirmPayment(paymentConfirmation);

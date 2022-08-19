@@ -1,10 +1,8 @@
 ﻿using System.Text;
 using System.Text.Json;
-using ForfeitCase.Entities;
-using ForfeitCase.Web.Dtos.User;
 using Xunit;
 
-namespace ForfeitCase.Test
+namespace ForfeitBox.Test
 {
   public class UserEndpointTest
   {

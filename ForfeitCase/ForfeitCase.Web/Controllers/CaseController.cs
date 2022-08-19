@@ -1,16 +1,16 @@
-﻿using ForfeitCase.Entities;
-using ForfeitCase.Service;
-using ForfeitCase.Web.Dtos.Case;
+﻿using ForfeitBox.Entities;
+using ForfeitBox.Service;
+using ForfeitBox.Web.Dtos.Case;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ForfeitCase.Web.Controllers
+namespace ForfeitBox.Web.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
   public class CaseController : ControllerBase
   {
-    private ICaseService _caseService;
-    public CaseController(ICaseService caseService)
+    private IBoxService _caseService;
+    public CaseController(IBoxService caseService)
     {
       _caseService = caseService;
     }
@@ -18,7 +18,7 @@ namespace ForfeitCase.Web.Controllers
     [HttpGet("{caseId}")]
     public async Task<IActionResult> GetCase(string caseId)
     {
-      Case ca = await _caseService.GetCase(caseId, Utils.GetIdFromToken(HttpContext));
+      Box ca = await _caseService.GetCase(caseId, Utils.GetIdFromToken(HttpContext));
       if(ca == null)
       {
         return NotFound(); 
@@ -29,13 +29,13 @@ namespace ForfeitCase.Web.Controllers
     [HttpPost]
     public async Task<IActionResult> CreateCase([FromBody] CreateCaseDto createCaseDto)
     {
-      Case ca = new Case
+      Box box = new Box
       {
-        CaseId = Guid.NewGuid().ToString(),
+        BoxId = Guid.NewGuid().ToString(),
         Name = createCaseDto.Name,      
       }; 
-      await _caseService.CreateCase(ca, Utils.GetIdFromToken(HttpContext));
-      return Ok(ca);
+      await _caseService.CreateCase(box, Utils.GetIdFromToken(HttpContext));
+      return Ok(box);
     }
 
     [HttpDelete("{caseId}")]
@@ -48,13 +48,13 @@ namespace ForfeitCase.Web.Controllers
     [HttpPut]
     public async Task<ActionResult> UpdateCase([FromBody] UpdateCaseDto updateCaseDto)
     {
-      Case ca = new Case
+      Box box= new Box
       {
         Name = updateCaseDto.Name,
-        CaseId = updateCaseDto.CaseId
+        BoxId = updateCaseDto.CaseId
       };
-      await _caseService.UpdateCase(ca, Utils.GetIdFromToken(HttpContext));
-      return Ok(ca);
+      await _caseService.UpdateCase(box, Utils.GetIdFromToken(HttpContext));
+      return Ok(box);
     }
   }
 }

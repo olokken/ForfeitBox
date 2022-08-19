@@ -1,6 +1,6 @@
 ﻿using System.Data;
-using ForfeitCase.Repository;
-using ForfeitCase.Service;
+using ForfeitBox.Repository;
+using ForfeitBox.Service;
 using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);

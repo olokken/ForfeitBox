@@ -1,9 +1,9 @@
-using ForfeitCase.Entities;
-using ForfeitCase.Service;
-using ForfeitCase.Web.Dtos.User;
+using ForfeitBox.Entities;
+using ForfeitBox.Service;
+using ForfeitBox.Web.Dtos.User;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ForfeitCase.Web.Controllers
+namespace ForfeitBox.Web.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]

@@ -1,6 +1,6 @@
-﻿using ForfeitCase.Entities;
+﻿using ForfeitBox.Entities;
 
-namespace ForfeitCase.Service
+namespace ForfeitBox.Service
 {
   public interface IPaymentService
   {

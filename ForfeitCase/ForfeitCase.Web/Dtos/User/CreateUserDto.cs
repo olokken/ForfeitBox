@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ForfeitCase.Web.Dtos.User
+namespace ForfeitBox.Web.Dtos.User
 {
   public class CreateUserDto
   {

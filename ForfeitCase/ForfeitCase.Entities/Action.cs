@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ForfeitCase.Entities
+namespace ForfeitBox.Entities
 {
   public abstract class Action
   {
@@ -10,8 +10,8 @@ namespace ForfeitCase.Entities
     //ettersom dataen er tilgjengelig, men ikke 
     public User? Executor { get; set; }
     public string? ExecutorId { get; set; }
-    public Case? Case { get; set; }
-    public string? CaseId { get; set; }
+    public virtual Box? Box { get; set; }
+    public string? BoxId { get; set; }
   }
 }
 

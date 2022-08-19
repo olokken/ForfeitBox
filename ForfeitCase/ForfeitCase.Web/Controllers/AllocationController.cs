@@ -1,9 +1,9 @@
-﻿using ForfeitCase.Entities;
-using ForfeitCase.Service;
-using ForfeitCase.Web.Dtos.Allocation;
+﻿using ForfeitBox.Entities;
+using ForfeitBox.Service;
+using ForfeitBox.Web.Dtos.Allocation;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ForfeitCase.Web.Controllers
+namespace ForfeitBox.Web.Controllers
 {
   [ApiController]
   [Route("api/Case/[controller]")]
@@ -21,7 +21,7 @@ namespace ForfeitCase.Web.Controllers
       Allocation allocation = new Allocation
       {
         AllocationId = Guid.NewGuid().ToString(),
-        CaseId = createAllocationDto.CaseId,
+        BoxId = createAllocationDto.CaseId,
         ForfeitId = createAllocationDto.ForfeitId,
         ExecutorId = Utils.GetIdFromToken(HttpContext)
       };

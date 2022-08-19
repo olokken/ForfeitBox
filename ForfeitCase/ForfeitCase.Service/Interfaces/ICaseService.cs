@@ -1,13 +1,13 @@
-﻿using ForfeitCase.Entities;
+﻿using ForfeitBox.Entities;
 
-namespace ForfeitCase.Service
+namespace ForfeitBox.Service
 {
-  public interface ICaseService
+  public interface IBoxService
   {
-    Task CreateCase(Case ca, string creatorId);
-    Task UpdateCase(Case ca, string executorId);
+    Task CreateCase(Box box, string creatorId);
+    Task UpdateCase(Box box, string executorId);
     Task DeleteCase(string caseId, string executorId);
-    Task<Case> GetCase(string caseId, string executorId); 
+    Task<Box> GetCase(string caseId, string executorId); 
   }
 }
 

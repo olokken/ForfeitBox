@@ -1,8 +1,8 @@
 ﻿using System.Data;
 using Dapper;
-using ForfeitCase.Entities;
+using ForfeitBox.Entities;
 
-namespace ForfeitCase.Repository
+namespace ForfeitBox.Repository
 {
   public class AllocationRepository : IAllocationRepository
   {
@@ -14,8 +14,8 @@ namespace ForfeitCase.Repository
 
     public async Task CreateAllocation(Allocation allocation)
     {
-      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, allocation.ExecutorId, allocation.CaseId);
-      var sql = "INSERT INTO allocation (AllocationId, RecieverId, ForfeitId, ExecutorId, CaseId) VALUES (@AllocationId, @RecieverId, @ForfeitId, @ExecutorId, @CaseId)";
+      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, allocation.ExecutorId, allocation.BoxId);
+      var sql = "INSERT INTO allocation (AllocationId, RecieverId, ForfeitId, ExecutorId, BoxId) VALUES (@AllocationId, @RecieverId, @ForfeitId, @ExecutorId, @CaseId)";
       if (isAdmin)
       {
         await _dbConnection.ExecuteAsync(sql, allocation);

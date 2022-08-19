@@ -1,4 +1,4 @@
-﻿namespace ForfeitCase.Entities
+﻿namespace ForfeitBox.Entities
 {
   public class Forfeit
   {
@@ -6,8 +6,8 @@
     public string? Name { get; set; }
     public string? Description { get; set; }
     public double Sum { get; set; }
-    public string? CaseId { get; set; }
-    public virtual Case? @Case { get; set; }
+    public string? BoxId { get; set; }
+    public virtual Box? Box { get; set; }
   }
 }
 

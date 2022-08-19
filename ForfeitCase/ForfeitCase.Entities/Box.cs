@@ -1,8 +1,8 @@
-﻿namespace ForfeitCase.Entities
+﻿namespace ForfeitBox.Entities
 {
-  public class Case
+  public class Box
   {
-    public string? CaseId { get; set; }
+    public string? BoxId { get; set; }
     public string? Name { get; set; }
     public IEnumerable<Forfeit>? Forfeits { get; set; }
     public IEnumerable<User>? Admins { get; set; }

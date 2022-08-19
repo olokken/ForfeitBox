@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace ForfeitCase.Repository
+namespace ForfeitBox.Repository
 {
   public interface IUserCaseRepository
   {

@@ -1,8 +1,8 @@
 ﻿using System;
-using ForfeitCase.Entities;
-using ForfeitCase.Repository;
+using ForfeitBox.Entities;
+using ForfeitBox.Repository;
 
-namespace ForfeitCase.Service
+namespace ForfeitBox.Service
 {
   public class AllocationService : IAllocationService
   {

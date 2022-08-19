@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ForfeitCase.Web.Dtos.Case
+namespace ForfeitBox.Web.Dtos.Case
 {
   public class UpdateCaseDto
   {

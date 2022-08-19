@@ -1,8 +1,8 @@
 ﻿using System.Data;
 using Dapper;
-using ForfeitCase.Entities;
+using ForfeitBox.Entities;
 
-namespace ForfeitCase.Repository
+namespace ForfeitBox.Repository
 {
   public class PaymentRepository : IPaymentRepository
   {
@@ -14,7 +14,7 @@ namespace ForfeitCase.Repository
 
     public async Task ConfirmPayment(PaymentConfirmation paymentConfirmation)
     {
-      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, paymentConfirmation.ExecutorId, paymentConfirmation.CaseId);
+      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, paymentConfirmation.ExecutorId, paymentConfirmation.BoxId);
       var sql = "INSERT INTO payment_confirmation (PaymentConfirmationId, PaymentId, ExecutorId, CaseId) values (@PaymentConfirmationId, @PaymentId, @ExecutorId, @CaseId)";
       if (isAdmin)
       {

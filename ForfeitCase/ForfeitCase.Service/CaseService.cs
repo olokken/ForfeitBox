@@ -1,19 +1,19 @@
-﻿using ForfeitCase.Entities;
-using ForfeitCase.Repository;
+﻿using ForfeitBox.Entities;
+using ForfeitBox.Repository;
 
-namespace ForfeitCase.Service
+namespace ForfeitBox.Service
 {
-  public class CaseService : ICaseService
+  public class BoxService : IBoxService
   {
-    private ICaseRepository _caseRepository; 
-    public CaseService(ICaseRepository caseRepository)
+    private IBoxRepository _caseRepository; 
+    public BoxService(IBoxRepository caseRepository)
     {
       _caseRepository = caseRepository; 
     }
 
-    public Task CreateCase(Case ca, string creatorId)
+    public Task CreateCase(Box box, string creatorId)
     {
-      return _caseRepository.CreateCase(ca, creatorId); 
+      return _caseRepository.CreateCase(box, creatorId); 
     }
 
     public Task DeleteCase(string caseId, string executorId)
@@ -21,14 +21,14 @@ namespace ForfeitCase.Service
       return _caseRepository.DeleteCase(caseId, executorId); 
     }
 
-    public Task<Case> GetCase(string caseId, string executorId)
+    public Task<Box> GetCase(string boxId, string executorId)
     {
-      return _caseRepository.GetCase(caseId, executorId); 
+      return _caseRepository.GetCase(boxId, executorId); 
     }
 
-    public Task UpdateCase(Case ca, string executorId)
+    public Task UpdateCase(Box box, string executorId)
     {
-      return _caseRepository.UpdateCase(ca, executorId); 
+      return _caseRepository.UpdateCase(box, executorId); 
     }
   }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ForfeitCase.Entities
+namespace ForfeitBox.Entities
 {
   public class PaymentConfirmation : Action
   {
