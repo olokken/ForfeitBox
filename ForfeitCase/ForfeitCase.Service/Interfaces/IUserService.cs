@@ -1,4 +1,4 @@
-﻿using ForfeitCase.Entities;
+using ForfeitCase.Entities;
 
 namespace ForfeitCase.Service
 {

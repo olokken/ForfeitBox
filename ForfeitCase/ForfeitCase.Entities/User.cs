@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
+using System.Text.Json.Serialization;
+
 namespace ForfeitCase.Entities
 {
   public class User

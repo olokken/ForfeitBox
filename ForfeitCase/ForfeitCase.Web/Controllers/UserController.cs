@@ -1,4 +1,4 @@
-﻿using ForfeitCase.Entities;
+using ForfeitCase.Entities;
 using ForfeitCase.Service;
 using ForfeitCase.Web.Dtos.User;
 using Microsoft.AspNetCore.Mvc;
