@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ForfeitCase.Web/ForfeitCase.Web.csproj", "ForfeitCase.Web/"]
-RUN dotnet restore "ForfeitCase.Web/ForfeitCase.Web.csproj"
+COPY ["ForfeitBox.Web/ForfeitBox.Web.csproj", "ForfeitBox.Web/"]
+RUN dotnet restore "ForfeitBox.Web/ForfeitBox.Web.csproj"
 COPY . .
-WORKDIR "/src/ForfeitCase.Web"
-RUN dotnet build "ForfeitCase.Web.csproj" -c Release -o /app/build
+WORKDIR "/src/ForfeitBox.Web"
+RUN dotnet build "ForfeitBox.Web.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ForfeitCase.Web.csproj" -c Release -o /app/publish
+RUN dotnet publish "ForfeitBox.Web.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ForfeitCase.Web.dll"]
+ENTRYPOINT ["dotnet", "ForfeitBox.Web.dll"]
