@@ -25,7 +25,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ForfeitCase.Entities\ForfeitBox.Entities.csproj">
+    <ProjectReference Include="..\ForfeitBox.Entities\ForfeitBox.Entities.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
