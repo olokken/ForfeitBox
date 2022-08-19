@@ -1,5 +1,7 @@
 ﻿using System.Text;
 using System.Text.Json;
+using ForfeitBox.Entities;
+using ForfeitBox.Web.Dtos.User;
 using Xunit;
 
 namespace ForfeitBox.Test
