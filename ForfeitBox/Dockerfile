@@ -2,12 +2,15 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-EXPOSE 80
+EXPOSE 8000
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["ForfeitBox.Web/ForfeitBox.Web.csproj", "ForfeitBox.Web/"]
+COPY ["ForfeitBox.Entities/ForfeitBox.Entities.csproj", "ForfeitBox.Entities/"]
+COPY ["ForfeitBox.Service/ForfeitBox.Service.csproj", "ForfeitBox.Service/"]
+COPY ["ForfeitBox.Repository/ForfeitBox.Repository.csproj", "ForfeitBox.Repository/"]
 RUN dotnet restore "ForfeitBox.Web/ForfeitBox.Web.csproj"
 COPY . .
 WORKDIR "/src/ForfeitBox.Web"

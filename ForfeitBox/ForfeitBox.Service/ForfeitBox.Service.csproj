@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(RunConfiguration)' == 'ForfeitBox.Service' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'ForfeitCase.Service' " />
   <ItemGroup>
     <None Remove="Interfaces\" />
   </ItemGroup>
