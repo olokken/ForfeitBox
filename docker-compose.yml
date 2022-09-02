@@ -5,9 +5,10 @@ services:
       context: ./client
       dockerfile: ./Dockerfile
     ports:
-      - "3000:3000"
+      - "80:3000"
   backend:
     build:
       context: ./ForfeitBox
       dockerfile: ./Dockerfile
-    ports: -"8000:8000"
+    ports:
+      - "8000:8000"
