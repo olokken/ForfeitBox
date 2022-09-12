@@ -1,14 +1,14 @@
 version: "3.9"
 services:
+  keycloak:
+    build:
+      context: ./
+      dockerfile: ./keycloak.Dockerfile
+    ports:
+      - "8080:8080"
   web:
     build:
-      context: ./client
-      dockerfile: ./Dockerfile
+      context: ./
+      dockerfile: ./nginx.Dockerfile
     ports:
-      - "80:3000"
-  backend:
-    build:
-      context: ./ForfeitBox
-      dockerfile: ./Dockerfile
-    ports:
-      - "8000:8000"
+      - "80:80"
