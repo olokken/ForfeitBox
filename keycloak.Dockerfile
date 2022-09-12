@@ -19,6 +19,6 @@ RUN keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysi
 # ENV KC_DB_USERNAME=<DBUSERNAME>
 # ENV KC_DB_PASSWORD=<DBPASSWORD>
 ENV KC_HOSTNAME=localhost
-ENV KEYCLOAK_ADMIN=admin
-ENV KEYCLOAK_ADMIN_PASSWORD=admin
+ENV KEYCLOAK_ADMIN=<username>
+ENV KEYCLOAK_ADMIN_PASSWORD=<password>
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]

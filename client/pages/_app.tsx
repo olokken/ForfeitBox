@@ -12,16 +12,18 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <SessionProvider session={pageProps.session}>
-      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-        <Layout
-          isDarkMode={isDarkMode}
-          updateDarkmode={(bol: boolean) => {
-            setIsDarkMode(bol);
-          }}
-        >
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <Auth>
+        <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+          <Layout
+            isDarkMode={isDarkMode}
+            updateDarkmode={(bol: boolean) => {
+              setIsDarkMode(bol);
+            }}
+          >
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </Auth>
     </SessionProvider>
   );
 }
