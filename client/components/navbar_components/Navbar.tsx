@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
-import React from 'react';
 import { DarkModeSwitch } from '../switches/DarkModeSwitch';
 
 interface Props {
@@ -22,7 +21,7 @@ const Navbar = ({
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" sx={{ zIndex: '1301 !important' }}>
-        <Toolbar>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
           <IconButton
             size="large"
             edge="start"
