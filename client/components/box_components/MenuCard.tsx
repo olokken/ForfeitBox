@@ -7,6 +7,7 @@ import { CardActionArea } from '@mui/material';
 import styled from 'styled-components';
 import { CenterContnetCol, CenterContnetRow } from '../helping_components/Divs';
 import PaymentIcon from '@mui/icons-material/Payment';
+import Link from 'next/link';
 
 const StyledCard = styled(Card)`
   max-width: 15rem;
@@ -24,32 +25,35 @@ interface Props {
   header: string;
   icon: any;
   text: string;
+  route: string;
 }
 
-const MenuCard = ({ header, icon, text }: Props) => {
+const MenuCard = ({ header, icon, text, route }: Props) => {
   console.log(icon);
 
   return (
-    <StyledCard onClick={() => console.log('Til siden')}>
-      <CardActionArea>
-        <CenterContnetRow>
-          {/*   <StyledPaymentIcon></StyledPaymentIcon> */}
-          {icon}
-        </CenterContnetRow>
-        <CardContent>
+    <Link href={route}>
+      <StyledCard onClick={() => console.log('Til siden')}>
+        <CardActionArea>
           <CenterContnetRow>
-            <CenterContnetCol>
-              <Typography gutterBottom variant="h5" component="div">
-                {header}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {text}
-              </Typography>
-            </CenterContnetCol>
+            {/*   <StyledPaymentIcon></StyledPaymentIcon> */}
+            {icon}
           </CenterContnetRow>
-        </CardContent>
-      </CardActionArea>
-    </StyledCard>
+          <CardContent>
+            <CenterContnetRow>
+              <CenterContnetCol>
+                <Typography gutterBottom variant="h5" component="div">
+                  {header}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {text}
+                </Typography>
+              </CenterContnetCol>
+            </CenterContnetRow>
+          </CardContent>
+        </CardActionArea>
+      </StyledCard>
+    </Link>
   );
 };
 

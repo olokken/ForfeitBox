@@ -8,34 +8,40 @@ import AssessmentIcon from '@mui/icons-material/Assessment';
 
 const testData = [
   {
-    text: 'Pay ur fines so u can ffel god about urself',
+    text: 'Pay ur fines so u can feel god about urself',
     header: 'Payment',
     icon: <PaymentIcon sx={{ fontSize: '100px' }}></PaymentIcon>,
+    route: '/boxname/payment',
   },
   {
     text: 'See all user in the box and explore their fines',
     header: 'Users',
     icon: <GroupIcon sx={{ fontSize: '100px' }}></GroupIcon>,
+    route: '/boxname/Users',
   },
   {
     text: 'See statistics on fines and users',
     header: 'Statistics',
     icon: <AssessmentIcon sx={{ fontSize: '100px' }}></AssessmentIcon>,
+    route: '/boxname/statistics',
   },
   {
     text: 'See all user in the box and explore their fines',
     header: 'Users',
     icon: <GroupIcon sx={{ fontSize: '100px' }}></GroupIcon>,
+    route: '/boxname/users',
   },
   {
     text: 'See all user in the box and explore their fines',
     header: 'Users',
     icon: <GroupIcon sx={{ fontSize: '100px' }}></GroupIcon>,
+    route: '/boxname/users',
   },
   {
     text: 'See all user in the box and explore their fines',
-    header: 'Users',
+    header: 'Something',
     icon: <GroupIcon sx={{ fontSize: '100px' }}></GroupIcon>,
+    route: '/boxname/users',
   },
 ];
 
@@ -46,6 +52,7 @@ const BoxMenu: NextPage = () => {
         {testData.map((elem) => {
           return (
             <MenuCard
+              route={elem.route}
               icon={elem.icon}
               text={elem.text}
               header={elem.header}
