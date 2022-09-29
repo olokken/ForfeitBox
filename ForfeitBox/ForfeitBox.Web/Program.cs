@@ -3,6 +3,8 @@ using ForfeitBox.Repository;
 using ForfeitBox.Service;
 using MySqlConnector;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,6 +18,21 @@ builder.Services.AddScoped<IDbConnection, MySqlConnection>(_ => new MySqlConnect
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<IAllocationRepository, AllocationRepository>();
+builder.Services.AddScoped<IAllocationService, AllocationService>();
+
+builder.Services.AddScoped<IBoxRepository, BoxRepository>();
+builder.Services.AddScoped<IBoxService, BoxService>();
+
+builder.Services.AddScoped<IForfeitRepository, ForfeitRepository>();
+builder.Services.AddScoped<IForfeitService, ForfeitService>();
+
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+
+builder.Services.AddScoped<IUserCaseRepository, UserCaseRepository>();
+builder.Services.AddScoped<IUserCaseService, UserCaseService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
