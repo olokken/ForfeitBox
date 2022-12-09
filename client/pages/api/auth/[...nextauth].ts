@@ -48,6 +48,7 @@ async function refreshAccessToken(token: any) {
 }
 
 export default NextAuth({
+  secret: process.env.NEXT_AUTH_SECRET,
   providers: [
     KeycloakProvider({
       issuer: process.env.KEYCLOAK_ISSUER,

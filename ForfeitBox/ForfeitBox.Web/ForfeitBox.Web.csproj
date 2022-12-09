@@ -28,13 +28,13 @@
     <None Remove="Dtos\Payment\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ForfeitBox.Repository\ForfeitCase.Repository.csproj">
+    <ProjectReference Include="..\ForfeitBox.Repository\ForfeitBox.Repository.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\ForfeitBox.Service\ForfeitCase.Service.csproj">
+    <ProjectReference Include="..\ForfeitBox.Service\ForfeitBox.Service.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\ForfeitBox.Entities\ForfeitCase.Entities.csproj">
+    <ProjectReference Include="..\ForfeitBox.Entities\ForfeitBox.Entities.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
     <ProjectReference Include="..\ForfeitBox.Entities\ForfeitBox.Entities.csproj">

@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(RunConfiguration)' == 'ForfeitCase.Repository' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'ForfeitBox.Repository' " />
   <ItemGroup>
     <None Remove="Dapper" />
     <None Remove="Interfaces\" />
