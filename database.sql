@@ -1,3 +1,7 @@
+CREATE DATABASE forfeitbox;
+
+USE forfeitbox;
+
 CREATE TABLE `user` (
   `UserId` varchar(50) NOT NULL,
   `Name` varchar(45) DEFAULT NULL,

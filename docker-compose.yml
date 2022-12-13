@@ -18,3 +18,9 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - "8050:8050"
+  db:
+    build:
+      context: ./
+      dockerfile: ./database.Dockerfile
+    ports:
+      - "3306:3306"
