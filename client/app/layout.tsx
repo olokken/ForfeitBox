@@ -1,11 +1,20 @@
-import React from "react";
+import Link from "next/link";
+import "./globals.css";
 
-function Layout() {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html>
-      <h1 className="text-3xl underline text-blue-600">Hello world!</h1>
+      <head />
+      <body>
+        <nav>
+          <Link href="/feed"> Feed</Link>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
-
-export default Layout;
