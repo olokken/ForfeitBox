@@ -1,25 +1,22 @@
-import { signIn, useSession } from "next-auth/react";
-import { NextRouter, useRouter } from "next/router";
+"use client";
+import { useSession } from "next-auth/react";
 import React, { useEffect } from "react";
+import SignInButton from "../../../components/buttons/SignInButton";
 
 type AuthProps = {
   children: React.ReactNode;
 };
 
 function Auth({ children }: AuthProps) {
-  const router: NextRouter = useRouter();
-  const { data: session, status } = useSession();
-
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      signIn("keycloak", { callbackUrl: "http://localhost:3000/" });
-    } else {
-      router.push("/");
-    }
-  }, [status]);
+  const { status } = useSession();
 
   if (status === "loading" || status === "unauthenticated") {
-    return <div>Loading</div>;
+    return (
+      <div>
+        Du er ikke innlogget mannen
+        <SignInButton></SignInButton>
+      </div>
+    );
   }
   return <>{children}</>;
 }
