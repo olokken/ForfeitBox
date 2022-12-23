@@ -1,5 +1,5 @@
 import React from "react";
-import SignOutButton from "../components/buttons/SignOutButton";
+import SignOutButton from "../components/buttons/action_buttons/SignOutButton";
 
 function HomePage() {
   return (

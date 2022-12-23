@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Providers from "./providers";
 import "./globals.css";
+import Navbar from "../components/navbar/Navbar";
 
 export default function RootLayout({
   children,
@@ -12,10 +12,7 @@ export default function RootLayout({
     <html>
       <head />
       <body>
-        <nav>
-          <Link href="/feed">Feed</Link>
-          <Link href="/">Home</Link>
-        </nav>
+        <Navbar></Navbar>
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -1,7 +1,7 @@
 "use client";
 import { useSession } from "next-auth/react";
 import React, { useEffect } from "react";
-import SignInButton from "../../../components/buttons/SignInButton";
+import SignInButton from "../../../components/buttons/action_buttons/SignInButton";
 
 type AuthProps = {
   children: React.ReactNode;
