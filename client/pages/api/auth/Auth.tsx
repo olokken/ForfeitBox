@@ -1,23 +1,20 @@
 "use client";
 import { useSession } from "next-auth/react";
-import React, { useEffect } from "react";
-import SignInButton from "../../../components/buttons/action_buttons/SignInButton";
+import React from "react";
+import { signIn } from "next-auth/react";
 
 type AuthProps = {
-  children: React.ReactNode;
+  children: React.ReactNode | React.ReactNode[];
 };
 
 function Auth({ children }: AuthProps) {
   const { status } = useSession();
 
-  if (status === "loading" || status === "unauthenticated") {
-    return (
-      <div>
-        Du er ikke innlogget mannen
-        <SignInButton></SignInButton>
-      </div>
-    );
+  if (status === "unauthenticated") {
+    signIn();
+    return <div>Du er ikke innlogget mannen</div>;
   }
+
   return <>{children}</>;
 }
 

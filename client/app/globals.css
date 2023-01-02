@@ -10,6 +10,10 @@
   .dropdown-items {
     @apply text-gray-700 block w-full px-4 py-2 text-left text-sm hover:bg-gray-300;
   }
+
+  .custom-border {
+    @apply border-b border-gray-200 dark:border-gray-600;
+  }
 }
 
 @tailwind utilities;
