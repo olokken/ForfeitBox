@@ -6,7 +6,7 @@ namespace ForfeitBox.Repository
 {
   public class PaymentRepository : IPaymentRepository
   {
-    private IDbConnection _dbConnection;
+    private readonly IDbConnection _dbConnection;
     public PaymentRepository(IDbConnection dbConnection)
     {
       _dbConnection = dbConnection;

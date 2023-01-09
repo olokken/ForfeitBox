@@ -6,7 +6,7 @@ namespace ForfeitBox.Repository
 {
   public class BoxRepository : IBoxRepository
   {
-    private IDbConnection _dbConnection;
+    private readonly IDbConnection _dbConnection;
     public BoxRepository(IDbConnection dbConnection)
     {
       _dbConnection = dbConnection; 
@@ -14,7 +14,7 @@ namespace ForfeitBox.Repository
 
     public async Task CreateCase(Box ca, string creatorId)
     {
-      var insertCaseQuery = "INSERT INTO case(CaseId, Name) values (@CaseId, @Name)";
+      var insertCaseQuery = "INSERT INTO case(CaseId, Name, Code) values (@CaseId, @Name, @Code)";
       var insertAdminQuery = "INSERT INTO user_case(UserId, BoxId, IsAdmin) values (@UserId, @BoxId, @IsAdmin)";
       using(IDbTransaction transaction = _dbConnection.BeginTransaction())
       {
@@ -38,7 +38,7 @@ namespace ForfeitBox.Repository
     {
       if (await UserCaseRepository.IsMember(_dbConnection, executorId, caseId))
       {
-        var caseQuery = "SELECT CaseId, Name from case where CaseId = @CaseId";
+        var caseQuery = "SELECT CaseId, Name, Code from case where CaseId = @CaseId";
         var membersQuery = "SELECT u.UserId, u.Name from user u " +
           "join user_case uc on u.UserId = uc.UserId " +
           "where uc.CaseId = @CaseId and uc.IsAdmin = false";

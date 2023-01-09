@@ -9,7 +9,7 @@ namespace ForfeitBox.Web.Controllers
   [Route("api/Case/[controller]")]
   public class AllocationController : ControllerBase
   {
-    private IAllocationService _allocationService;
+    private readonly IAllocationService _allocationService;
     public AllocationController(IAllocationService allocationService)
     {
       _allocationService = allocationService;

@@ -5,7 +5,7 @@ namespace ForfeitBox.Service
 {
   public class ForfeitService : IForfeitService
   {
-    private IForfeitRepository _forfeitRepository;
+    private readonly IForfeitRepository _forfeitRepository;
     public ForfeitService(IForfeitRepository forfeitRepository)
     {
       _forfeitRepository = forfeitRepository; 

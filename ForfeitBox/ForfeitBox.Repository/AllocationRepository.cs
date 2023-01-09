@@ -6,7 +6,7 @@ namespace ForfeitBox.Repository
 {
   public class AllocationRepository : IAllocationRepository
   {
-    private IDbConnection _dbConnection;
+    private readonly IDbConnection _dbConnection;
     public AllocationRepository(IDbConnection dbConnection)
     {
       _dbConnection = dbConnection;

@@ -11,6 +11,7 @@ CREATE TABLE `user` (
 CREATE TABLE `box` (
   `BoxId` varchar(50) NOT NULL,
   `Name` varchar(45) DEFAULT NULL,
+  `Code` varchar(45) NOT NULL,
   PRIMARY KEY (`BoxId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

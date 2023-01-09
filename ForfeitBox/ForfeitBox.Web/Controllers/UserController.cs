@@ -9,34 +9,34 @@ namespace ForfeitBox.Web.Controllers
   [Route("api/[controller]")]
   public class UserController : ControllerBase
   {
-    private IUserService _userService;
+    private readonly IUserService _userService;
     public UserController(IUserService userService)
     {
       _userService = userService;
     }
 
-    [HttpGet("{userId}")]
-    public async Task<IActionResult> GetUser(string userId)
+    [HttpGet]
+    public async Task<IActionResult> GetUser()
     {
+      string userId = Utils.GetIdFromToken(HttpContext); 
       User user = await _userService.GetUser(userId);
       if (user == null)
       {
-        return NotFound();
+        User newUser = new User
+        {
+          UserId = Guid.NewGuid().ToString(),  
+        };
+        await _userService.CreateUser(newUser);
+        return Ok(newUser); 
       }
       return Ok(user);
     }
 
-    [HttpPost]
-    public async Task<IActionResult> CreateUser([FromBody] CreateUserDto userDto)
+    [HttpDelete]
+    public async Task<IActionResult> CreateUser()
     {
-      User user = new User
-      {
-        UserId = Guid.NewGuid().ToString(),
-        Name = userDto.Name,
-        Email = userDto.Email
-      };
-      await _userService.CreateUser(user);
-      return Ok(user); 
+      //Slett bruker; 
+      throw new NotImplementedException();
     }
   }
 }

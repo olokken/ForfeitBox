@@ -6,7 +6,7 @@ namespace ForfeitBox.Service
 {
   public class AllocationService : IAllocationService
   {
-    private IAllocationRepository _allocationRepository;
+    private readonly IAllocationRepository _allocationRepository;
     public AllocationService(IAllocationRepository allocationRepository)
     {
       _allocationRepository = allocationRepository; 

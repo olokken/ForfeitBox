@@ -1,4 +1,5 @@
 ﻿using ForfeitBox.Service;
+using ForfeitBox.Web.Dtos.Allocation;
 using ForfeitBox.Web.Dtos.UserCase;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,7 +9,7 @@ namespace ForfeitBox.Web.Controllers
   [Route("api/[controller]")]
   public class UserCaseController : ControllerBase
   {
-    private IUserCaseService _userCaseService;
+    private readonly IUserCaseService _userCaseService;
     public UserCaseController(IUserCaseService userCaseService)
     {
       _userCaseService = userCaseService;
@@ -17,19 +18,19 @@ namespace ForfeitBox.Web.Controllers
     [HttpPost]
     public async Task<IActionResult> AddUserToCase([FromBody] AddUserToCaseDto addUserToCaseDto)
     {
-      if (addUserToCaseDto.UserId != null && addUserToCaseDto.BoxId != null)
+      if (addUserToCaseDto.Code != null)
       {
-        await _userCaseService.AddUser(addUserToCaseDto.UserId, addUserToCaseDto.BoxId);        
+        await _userCaseService.AddUser(Utils.GetIdFromToken(HttpContext), addUserToCaseDto.Code);        
       }
       return Ok();      
     }
 
     [HttpDelete]
-    public async Task<IActionResult> RemoveUserFromCase([FromBody] AddUserToCaseDto addUserToCaseDto)
+    public async Task<IActionResult> RemoveUserFromCase([FromBody] RemoveUserFromBoxDto removeUserFromBoxDto)
     {
-      if (addUserToCaseDto.UserId != null && addUserToCaseDto.BoxId != null)
+      if (removeUserFromBoxDto.UserId != null && removeUserFromBoxDto.BoxId != null)
       {
-        await _userCaseService.RemoveUser(addUserToCaseDto.UserId, addUserToCaseDto.BoxId, Utils.GetIdFromToken(HttpContext));
+        await _userCaseService.RemoveUser(removeUserFromBoxDto.UserId, removeUserFromBoxDto.BoxId, Utils.GetIdFromToken(HttpContext));
       }
       return Ok();
     }

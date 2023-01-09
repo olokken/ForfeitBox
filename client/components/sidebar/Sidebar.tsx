@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import { useLayout } from "../../context/LayoutContext";
 import Searchbar from "../inputfields/Searchbar";
 import CreateForfeitboxModal from "./CreateForfeitBoxModal";
+import JoinForfeitboxModal from "./JoinForfeitBoxModal";
 
 function Sidebar() {
   const { isSidebarOpen } = useLayout();
   const [isCreateModalOpen, setIsCreateModalOpen] = useState<boolean>(false);
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState<boolean>(false);
 
   return (
     <React.Fragment>
@@ -23,7 +25,12 @@ function Sidebar() {
           >
             Create New ForfeitBox
           </button>
-          <button className="custom-btn">Join ForfeitBox</button>
+          <button
+            className="custom-btn"
+            onClick={() => setIsJoinModalOpen(true)}
+          >
+            Join ForfeitBox
+          </button>
         </div>
       </aside>
       <CreateForfeitboxModal
@@ -31,6 +38,11 @@ function Sidebar() {
         showModal={isCreateModalOpen}
         onSubmit={() => setIsCreateModalOpen(false)}
       ></CreateForfeitboxModal>
+      <JoinForfeitboxModal
+        close={() => setIsJoinModalOpen(false)}
+        showModal={isJoinModalOpen}
+        onSubmit={() => setIsJoinModalOpen(false)}
+      ></JoinForfeitboxModal>
     </React.Fragment>
   );
 }

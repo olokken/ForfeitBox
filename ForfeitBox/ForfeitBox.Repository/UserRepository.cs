@@ -6,7 +6,7 @@ namespace ForfeitBox.Repository
 {
   public class UserRepository : IUserRepository
   {
-    private IDbConnection _dbConnection;
+    private readonly IDbConnection _dbConnection;
 
     public UserRepository(IDbConnection dbConnection)
     {

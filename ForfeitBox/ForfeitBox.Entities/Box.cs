@@ -4,6 +4,7 @@
   {
     public string? BoxId { get; set; }
     public string? Name { get; set; }
+    public string? Code { get; set; }
     public IEnumerable<Forfeit>? Forfeits { get; set; }
     public IEnumerable<User>? Admins { get; set; }
     public IEnumerable<User>? Members { get; set; }

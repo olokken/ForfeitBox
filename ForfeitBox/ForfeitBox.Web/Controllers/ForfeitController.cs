@@ -9,7 +9,7 @@ namespace ForfeitBox.Web.Controllers
   [Route("api/Case/[controller]")]
   public class ForfeitController : ControllerBase
   {
-    private IForfeitService _forfeitService;
+    private readonly IForfeitService _forfeitService;
     public ForfeitController(IForfeitService forfeitService)
     {
       _forfeitService = forfeitService;

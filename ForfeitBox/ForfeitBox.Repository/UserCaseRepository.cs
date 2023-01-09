@@ -5,21 +5,22 @@ namespace ForfeitBox.Repository
 {
   public class UserCaseRepository : IUserCaseRepository
   {
-    private IDbConnection _dbConnection;
+    private readonly IDbConnection _dbConnection;
     public UserCaseRepository(IDbConnection dbConnection)
     {
       _dbConnection = dbConnection;
     }
 
-    public async Task AddUser(string userId, string caseId)
+    public async Task AddUser(string userId, string code)
     {
-      var addUserQuery = "INSERT INTO user_case (UserId, CaseId, IsAdmin) values (@UserId, @CaseId, false)";
-      await _dbConnection.ExecuteAsync(addUserQuery, new { UserId = userId, CaseId = caseId });
+      var query =
+        "INSERT INTO user_box (UserId, BoxId, IsAdmin) VALUES(@UserId, (SELECT BoxId FROM  WHERE box where Code = @Code),0)"; 
+      await _dbConnection.ExecuteAsync(query, new { UserId = userId, Code = code });
     }
 
     public static async Task<bool> IsAdmin(IDbConnection connection, string userId, string boxId)
     {
-      var isAdminQuery = "SELECT isAdmin from user_case where UserId = @UserId, BoxId = @BoxId";
+      var isAdminQuery = "SELECT isAdmin from user_box where UserId = @UserId, BoxId = @BoxId";
       bool isAdmin = await connection.QueryFirstOrDefaultAsync<bool>(isAdminQuery, new { UserId = userId, BoxId = boxId });
       if (isAdmin)
       {
@@ -31,7 +32,7 @@ namespace ForfeitBox.Repository
     
     public static async Task<bool> IsMember(IDbConnection connection, string userId, string boxId)
     {
-      var isAdminQuery = "SELECT UserId from user_case where UserId = @UserId, BoxId = @BoxId";
+      var isAdminQuery = "SELECT UserId from user_box where UserId = @UserId, BoxId = @BoxId";
       List<string> ids = (List<string>)await connection.QueryAsync<string>(isAdminQuery, new { UserId = userId, BoxId = boxId });
       if (ids.Count >= 1)
       {
@@ -40,23 +41,23 @@ namespace ForfeitBox.Repository
       return false; 
     }
 
-    public async Task RemoveUser(string userId, string caseId, string executorId)
+    public async Task RemoveUser(string userId, string boxId, string executorId)
     {
-      var removeUserQuery = "DELETE from user_case where UserId = @UserId and CaseId = @CaseId";
-      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, userId, caseId);
+      var removeUserQuery = "DELETE from user_box where UserId = @UserId and BoxId = @BoxId";
+      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, userId, boxId);
       if (isAdmin || userId == executorId)
       {
-        await _dbConnection.ExecuteAsync(removeUserQuery, new { UserId = userId, CaseId = caseId });
+        await _dbConnection.ExecuteAsync(removeUserQuery, new { UserId = userId, BoxId = boxId });
       }
     }
 
-    public async Task UpdateCredentials(string userId, string caseId, bool credentials, string executorId)
+    public async Task UpdateCredentials(string userId, string boxId, bool credentials, string executorId)
     {
-      var updateAdminQuery = "UPDATE user_case SET IsAdmin = @IsAdmin where UserId = @UserId, CaseId = @CaseId";
-      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, executorId, caseId);
+      var updateAdminQuery = "UPDATE user_box SET IsAdmin = @IsAdmin where UserId = @UserId, BoxId = @BoxId";
+      bool isAdmin = await UserCaseRepository.IsAdmin(_dbConnection, executorId, boxId);
       if (isAdmin)
       {
-        await _dbConnection.ExecuteAsync(updateAdminQuery, new { IsAdmin = credentials, UserId = userId, CaseId = caseId });
+        await _dbConnection.ExecuteAsync(updateAdminQuery, new { IsAdmin = credentials, UserId = userId, BoxId = boxId });
       }
     }
   }

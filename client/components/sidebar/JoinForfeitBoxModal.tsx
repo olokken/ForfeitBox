@@ -1,31 +1,27 @@
 import React from "react";
 import Modal from "../modal/Modal";
 
-type CreateForfeitboxModalProps = {
+type JoinForfeitboxModalProps = {
   showModal: boolean;
   onSubmit: () => void;
   close: () => void;
 };
 
-function CreateForfeitboxModal({
+function JoinForfeitboxModal({
   close,
   showModal,
   onSubmit,
-}: CreateForfeitboxModalProps) {
+}: JoinForfeitboxModalProps) {
   return (
-    <Modal
-      close={close}
-      header={"Create a new ForfeitBox"}
-      showModal={showModal}
-    >
+    <Modal close={close} header={"Join a ForfeitBox"} showModal={showModal}>
       <div className="flex flex-col space-y-4">
-        <input className="custom-input" placeholder="Enter name"></input>
+        <input className="custom-input" placeholder="Enter code"></input>
         <button onClick={onSubmit} className=" hover:bg-green-200 custom-btn">
-          Create ForfeitBox
+          Join ForfeitBox
         </button>
       </div>
     </Modal>
   );
 }
 
-export default CreateForfeitboxModal;
+export default JoinForfeitboxModal;

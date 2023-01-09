@@ -5,7 +5,7 @@ namespace ForfeitBox.Service
 {
   public class BoxService : IBoxService
   {
-    private IBoxRepository _caseRepository; 
+    private readonly IBoxRepository _caseRepository; 
     public BoxService(IBoxRepository caseRepository)
     {
       _caseRepository = caseRepository; 

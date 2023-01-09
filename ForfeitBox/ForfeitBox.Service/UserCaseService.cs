@@ -5,15 +5,15 @@ namespace ForfeitBox.Service
 {
   public class UserCaseService : IUserCaseService
   {
-    private IUserCaseRepository _userCaseRepository; 
+    private readonly IUserCaseRepository _userCaseRepository; 
     public UserCaseService(IUserCaseRepository userCaseRepository)
     {
       _userCaseRepository = userCaseRepository; 
     }
 
-    public Task AddUser(string userId, string caseId)
+    public Task AddUser(string userId, string code)
     {
-      return _userCaseRepository.AddUser(userId, caseId);
+      return _userCaseRepository.AddUser(userId, code);
     }
 
     public Task RemoveUser(string userId, string caseId, string executorId)

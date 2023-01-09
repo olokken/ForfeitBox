@@ -6,7 +6,7 @@ namespace ForfeitBox.Repository
 {
   public class ForfeitRepository : IForfeitRepository
   {
-    private IDbConnection _dbConnection;
+    private readonly IDbConnection _dbConnection;
     public ForfeitRepository(IDbConnection dbConnection)
     {
       _dbConnection = dbConnection; 

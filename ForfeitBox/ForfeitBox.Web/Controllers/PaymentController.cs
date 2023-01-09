@@ -9,7 +9,7 @@ namespace ForfeitBox.Web.Controllers
   [Route("api/Case/[controller]")]
   public class PaymentController : ControllerBase
   {
-    private IPaymentService _paymentService;
+    private readonly IPaymentService _paymentService;
     public PaymentController(IPaymentService paymentService)
     {
       _paymentService = paymentService;

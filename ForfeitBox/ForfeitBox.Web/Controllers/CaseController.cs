@@ -9,7 +9,7 @@ namespace ForfeitBox.Web.Controllers
   [Route("api/[controller]")]
   public class CaseController : ControllerBase
   {
-    private IBoxService _caseService;
+    private readonly IBoxService _caseService;
     public CaseController(IBoxService caseService)
     {
       _caseService = caseService;
@@ -32,7 +32,8 @@ namespace ForfeitBox.Web.Controllers
       Box box = new Box
       {
         BoxId = Guid.NewGuid().ToString(),
-        Name = createCaseDto.Name,      
+        Name = createCaseDto.Name,    
+        Code = Utils.createCode(),
       }; 
       await _caseService.CreateCase(box, Utils.GetIdFromToken(HttpContext));
       return Ok(box);
