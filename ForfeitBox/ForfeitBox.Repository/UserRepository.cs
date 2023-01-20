@@ -15,13 +15,13 @@ namespace ForfeitBox.Repository
 
     public async Task CreateUser(User user)
     {
-      var query = "INSERT INTO user (UserId, Name) values (@UserId, @Name)";
+      var query = "INSERT INTO user (UserId, Email) values (@UserId, @Email)";
       await _dbConnection.ExecuteAsync(query, user);
     }
 
     public async Task<User> GetUser(string userId)
     {
-      var userQuery = "SELECT UserId, Name from user where UserId = @UserId";
+      var userQuery = "SELECT UserId, Email from user where UserId = @UserId";
       var caseQuery = "SELECT b.BoxId, b.Name from box b join user_box ub on b.BoxId = ub.BoxId where ub.UserId = @UserId";
       User user = await _dbConnection.QueryFirstOrDefaultAsync<User>(userQuery, new { UserId = userId });
       IEnumerable<Box> boxes = await _dbConnection.QueryAsync<Box>(caseQuery, new {UserId = userId});

@@ -1,7 +1,7 @@
 ﻿using System;
 namespace ForfeitBox.Web.Dtos.Case
 {
-  public class CreateCaseDto
+  public class CreateBoxDto
   {
     public string? Name { get; set; }
   }

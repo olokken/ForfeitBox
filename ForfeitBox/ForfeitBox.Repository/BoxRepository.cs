@@ -14,14 +14,15 @@ namespace ForfeitBox.Repository
 
     public async Task CreateCase(Box ca, string creatorId)
     {
-      var insertCaseQuery = "INSERT INTO case(CaseId, Name, Code) values (@CaseId, @Name, @Code)";
-      var insertAdminQuery = "INSERT INTO user_case(UserId, BoxId, IsAdmin) values (@UserId, @BoxId, @IsAdmin)";
-      using(IDbTransaction transaction = _dbConnection.BeginTransaction())
+      var insertCaseQuery = "INSERT INTO box(BoxId, Name, Code) values (@BoxId, @Name, @Code)";
+      var insertAdminQuery = "INSERT INTO user_box(UserId, BoxId, IsAdmin) values (@UserId, @BoxId, @IsAdmin)";
+      await _dbConnection.ExecuteAsync(insertCaseQuery, ca);
+      await _dbConnection.ExecuteAsync(insertAdminQuery, new { UserId = creatorId, BoxId = ca.BoxId, isAdmin = true });
+      /**using (IDbTransaction transaction = _dbConnection.BeginTransaction())
       {
-        await _dbConnection.ExecuteAsync(insertCaseQuery, ca);
-        await _dbConnection.ExecuteAsync(insertAdminQuery, new { UserId = creatorId, BoxId = ca.BoxId, isAdmin = true });
+        
         transaction.Commit(); 
-      }
+      }*/
     }
 
     public async Task DeleteCase(string caseId, string executorId)

@@ -1,12 +1,16 @@
 "use client";
 import React from "react";
-import Searchbar from "../inputfields/Searchbar";
 import { GiHamburgerMenu } from "react-icons/Gi";
 import { GoSearch } from "react-icons/Go";
 import UserDropdown from "./UserDropdown";
-import { useLayout } from "../../context/LayoutContext";
+import { useLayout } from "../../../context/LayoutContext";
 
-function Navbar() {
+type NavbarProps = {
+  children?: React.ReactNode | React.ReactNode[];
+  searchbar: React.ReactNode;
+};
+
+function Navbar({ children, searchbar }: NavbarProps) {
   const { toggleSidebar } = useLayout();
 
   return (
@@ -21,9 +25,7 @@ function Navbar() {
               Forfeit Box
             </span>
           </div>
-          <div className="w-1/3 hidden md:block order-2">
-            <Searchbar></Searchbar>
-          </div>
+          <div className="w-1/3 hidden md:block order-2">{searchbar}</div>
           <button className="order-2 md:hidden custom-btn w-1/6 h-full flex items-center">
             <GoSearch></GoSearch>
           </button>

@@ -1,5 +1,6 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using ForfeitBox.Entities;
 
 namespace ForfeitBox.Web
 {
@@ -7,20 +8,42 @@ namespace ForfeitBox.Web
   {
     public static string GetIdFromToken(HttpContext httpContext)
     {
-      string token = httpContext.Request.Headers["Authorization"];
-      if (token != null)
+      IEnumerable<Claim> claims = GetClaims(httpContext); 
+      Claim? claim = claims.FirstOrDefault(c => c.Type == "sub");      
+      if (claim != null)
       {
-        token = token.Substring(7);
-        var handler = new JwtSecurityTokenHandler();
-        var jwt = handler.ReadJwtToken(token);
-        IEnumerable<Claim> claims = jwt.Claims;
-        Claim? claim = claims.FirstOrDefault(c => c.Type == "oid");      
-        if (claim != null)
-        {
-          return claim.Value;
-        }
+        return claim.Value;
       }
       return "";
+    }
+
+    public static IEnumerable<Claim> GetClaims(HttpContext httpContext)
+    {
+      string token = httpContext.Request.Headers["Authorization"];
+        if (token != null)
+        {
+          token = token.Substring(7);
+          var handler = new JwtSecurityTokenHandler();
+          var jwt = handler.ReadJwtToken(token);
+          return jwt.Claims;
+        }
+      return Enumerable.Empty<Claim>(); 
+    }
+
+    public static User? CreateUserFromToken(HttpContext httpContext)
+    {
+      IEnumerable<Claim> claims = GetClaims(httpContext);
+      Claim? sub = claims.FirstOrDefault(c => c.Type == "sub");
+      Claim? email = claims.FirstOrDefault(c => c.Type == "email");
+      if(sub != null && email != null)
+      {
+        return new User
+        {
+          UserId = sub.Value,
+          Email = email.Value,
+        }; 
+      }
+      return null; 
     }
 
     public static string createCode()

@@ -1,5 +1,4 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { withAuth } from "next-auth/middleware";
 import { getToken, JWT } from "next-auth/jwt";
 
@@ -9,7 +8,7 @@ export default withAuth(async function middleware(req: NextRequest) {
   const requestHeaders = new Headers(req.headers);
   if (token) {
     let accessToken: string = token.accessToken;
-    requestHeaders.set("authentication", `bearer ${accessToken}`);
+    requestHeaders.set("Authorization", `bearer ${accessToken}`);
   }
 
   // You can also set request headers in NextResponse.rewrite

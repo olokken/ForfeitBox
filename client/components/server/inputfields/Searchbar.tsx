@@ -1,8 +1,6 @@
 import React from "react";
 import { GoSearch } from "react-icons/Go";
 
-type SearchBarProps = {};
-
 function Searchbar() {
   return (
     <div className="relative">

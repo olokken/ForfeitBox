@@ -21,7 +21,7 @@ export function useLayout(): LayoutContextType {
 }
 
 export const LayoutProvider = ({ children }: LayoutProviderProps) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
   const [isDarkmode, setIsDarkmode] = useState<boolean>(false);
 
   const toggleSidebar = useCallback(() => {

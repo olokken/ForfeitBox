@@ -22,10 +22,11 @@ namespace ForfeitBox.Web.Controllers
       User user = await _userService.GetUser(userId);
       if (user == null)
       {
-        User newUser = new User
+        User? newUser = Utils.CreateUserFromToken(HttpContext);
+        if(newUser == null)
         {
-          UserId = Guid.NewGuid().ToString(),  
-        };
+          return Forbid(); 
+        }
         await _userService.CreateUser(newUser);
         return Ok(newUser); 
       }
@@ -33,9 +34,9 @@ namespace ForfeitBox.Web.Controllers
     }
 
     [HttpDelete]
-    public async Task<IActionResult> CreateUser()
+    public async Task<IActionResult> DeleteUser()
     {
-      //Slett bruker; 
+      //Slett bruker;     
       throw new NotImplementedException();
     }
   }
