@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { MinimalBox } from "../../../models/Box";
+import { MinimalBox } from "../../../data/models/Box";
 
 type BoxCardProps = {
   box: MinimalBox;

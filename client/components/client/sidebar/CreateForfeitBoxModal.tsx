@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { MinimalBox } from "../../../models/Box";
+import { MinimalBox } from "../../../data/models/Box";
 import Modal from "../../server/modal/Modal";
 
 type CreateForfeitboxModalProps = {

@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import { useLayout } from "../../../context/LayoutContext";
-import { MinimalBox } from "../../../models/Box";
-import CreateForfeitboxModal from "./CreateForfeitBoxModal";
-import JoinForfeitboxModal from "./JoinForfeitBoxModal";
+import { MinimalBox } from "../../../data/models/Box";
+import CreateForfeitboxModal from "./CreateForfeitboxModal";
+import JoinForfeitboxModal from "./JoinForfeitboxModal";
 
 async function joinBox(code: string) {
   console.log("a no lo siento");
@@ -32,6 +32,7 @@ function Sidebar({ searchbar, boxCards }: SidebarProps) {
         } transition-all h-[calc(100%-5rem)] p-1 pb-2 border-r left-0 fixed flex flex-col w-72 border-gray-300 dark:border-gray-600 justify-between`}
       >
         <div className="h-[calc(100%-8rem)]">
+          {searchbar}
           <ul className="overflow-auto space-y-1 mt-1 h-[calc(100%-4.5rem)]">
             {boxCards}
           </ul>

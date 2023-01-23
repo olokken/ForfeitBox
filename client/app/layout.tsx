@@ -3,15 +3,11 @@ import "./globals.css";
 import Navbar from "../components/client/navbar/Navbar";
 import Sidebar from "../components/client/sidebar/Sidebar";
 import PageContainer from "../components/client/PageContainer";
-import { User } from "../models/User";
-import { GET } from "./ajax";
+import { User } from "../data/models/User";
 import Searchbar from "../components/server/inputfields/Searchbar";
-import { MinimalBox } from "../models/Box";
+import { MinimalBox } from "../data/models/Box";
 import BoxCard from "../components/server/sidebar/BoxCard";
-
-async function getUser(): Promise<User> {
-  return await GET("/User");
-}
+import { getUser } from "../data/api/server/user.api";
 
 export default async function RootLayout({
   children,
