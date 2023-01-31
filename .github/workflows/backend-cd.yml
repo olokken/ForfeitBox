@@ -28,9 +28,9 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./ForfeitBox
+          context: ./generated-server
           push: true
-          tags: olokken/forfeit-case:backend
+          tags: olokken/dish-api:latest
       
       
     
